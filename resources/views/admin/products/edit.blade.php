@@ -6,7 +6,7 @@
                 <h2>Edit Product</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="" title="Go back"> <i class="fas fa-backward "></i> </a>
+                <a class="btn btn-primary" href="{{route('products.index')}}" title="Go back"> Back </a>
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Category:</strong>
-                    <select name="category">
+                    <select name="category" id="category">
                         <option value="">Select Category</option>
                         @foreach($categories as $category)
                             <option value="{{@$category->id}}" @if($category->id == $product->category) selected @endif>{{@$category->title}}</option>
@@ -61,7 +61,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Sub Category:</strong>
-                    <select name="sub_category">
+                    <select name="sub_category" id="subcategory">
                         <option value="">Select Sub Category</option>
                         @foreach($sub_categories as $sub_category)
                             <option value="{{@$sub_category->id}}"  @if($sub_category->id == $product->sub_category) selected @endif>{{@$sub_category->title}}</option>

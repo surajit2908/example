@@ -72,4 +72,24 @@
         </div>
 
     </form>
+
+    <script type="text/javascript">
+         $(document).ready(function () { 
+            $('#category').on('change',function(e){
+            console.log(e);
+            var cat_id = e.target.value;
+            //console.log(cat_id);
+            //ajax
+            $.get('/ajax-subcat?cat_id='+ cat_id,function(data){
+                //success data
+               //console.log(data);
+                var subcat =  $('#subcategory').empty();
+                $.each(data,function(create,subcatObj){
+                    var option = $('<option/>', {id:create, value:subcatObj});
+                    subcat.append('<option value ="'+subcatObj+'">'+subcatObj+'</option>');
+                });
+            });
+        });
+    });
+    </script>
         @endsection

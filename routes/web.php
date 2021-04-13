@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('/dashboard', 'HomeController@dashboard')->name('user.dashboard')->middleware('auth');
 
-Route::get('/login/admin', 'Admin\LoginController@showAdminLoginForm');
+Route::get('/login/admin', 'Admin\LoginController@showAdminLoginForm')->name('login.admin');
 Route::post('/login/admin', 'Admin\LoginController@adminLogin');
 
 
@@ -40,6 +40,11 @@ Route::group([
 	Route::get('category-edit/{id}',['as'=>'category.edit','uses'=>'Admin\CategoryController@edit']);
 	Route::put('category-update/{id}',['as'=>'category.update','uses'=>'Admin\CategoryController@update']);
 	Route::get('category-delete/{id}',['as'=>'category.delete','uses'=>'Admin\CategoryController@destroy']);
+
+	Route::get('/ajax-subcat',function () {
+	$cat_id = Input::get('cat_id');
+	$subcategories = DB::table('category')->where('parent_id','=',$cat_id)->lists('name');
+	return Response::json($subcategories);});
 
 
 
