@@ -9,4 +9,7 @@ I've added required middleware in __construct but it's not wotking. There's must
 In admin, Products module
 Sub-categories should come Category wise. I can but It's undone.
 
+#Mistake
+Products should be category wise, I did not noticed the question clearly.
+
 I can work a lot better than this.
