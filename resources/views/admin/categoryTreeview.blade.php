@@ -53,7 +53,7 @@
                             <label>Category</label>
                             <select name="parent_id">
                                 <option value="">Select Category</option>
-                                @foreach($categories as $allCategories)
+                                @foreach($allCategories as $allCategories)
                                     <option value="{{@$allCategories->id}}">{{@$allCategories->title}}</option>
                                 @endforeach
                             </select>
